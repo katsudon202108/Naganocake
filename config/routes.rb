@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about', as: 'about'
   get '/customers/my_page' => 'customers#show'
   get '/customers/caution' => 'customers#caution'
-  patch '/customers/hide' => 'customers#hide'
+  put '/customers/hide' => 'customers#hide',as: "customers_hide"
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :update, :destroy, :create]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
