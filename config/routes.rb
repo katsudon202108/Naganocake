@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :customers
+  devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+  }
+  resource :customers, only: [:edit, :update]
+  devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+  }
   root to: "homes#top"
   get '/about' => 'homes#about', as: 'about'
-  resource :customers, only: [:edit, :update]
   get '/customers/my_page' => 'customers#show'
   get '/customers/caution' => 'customers#caution'
   patch '/customers/hide' => 'customers#hide'
