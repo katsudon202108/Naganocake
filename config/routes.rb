@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   }
   root to: "homes#top"
   get '/about' => 'homes#about', as: 'about'
-
   get '/customers/my_page' => 'customers#show'
   get '/customers/caution' => 'customers#caution'
   patch '/customers/hide' => 'customers#hide'
