@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   passwords:     'admin/passwords',
   registrations: 'admin/registrations'
   }
+  resource :customers, only: [:edit, :update]
   devise_for :customers, controllers: {
     sessions:      'customers/sessions',
     passwords:     'customers/passwords',
@@ -11,10 +12,9 @@ Rails.application.routes.draw do
   }
   root to: "homes#top"
   get '/about' => 'homes#about', as: 'about'
-  resource :customers, only: [:edit, :update]
   get '/customers/my_page' => 'customers#show'
   get '/customers/caution' => 'customers#caution'
-  patch '/customers/hide' => 'customers#hide'
+  put '/customers/hide' => 'customers#hide',as: "customers_hide"
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :update, :destroy, :create]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
