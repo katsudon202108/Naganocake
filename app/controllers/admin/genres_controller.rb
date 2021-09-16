@@ -1,2 +1,2 @@
-class Admin::GenresController < Admin::AdminApplicationController
+class Admin::GenresController < Admin::ApplicationController
 end
