@@ -1,0 +1,15 @@
+<div class='container mt-5'>
+  <h3>注文情報確認</h3>
+  <div class='d-flex'>
+    <h5 class='font-weight-bold mb-0 mr-3'>支払い方法</h5>
+    <%= @order.payment_way %>
+  </div>
+  <div class='d-flex'>
+    <h5 class='font-weight-bold mb-0 mr-3'>お届け先</h5>
+    <p>
+      〒<%= @order.postal_code %>　<%= @order.address %><br>
+      <%= @order.name %>
+    </p>
+  </div>
+</div>
+
