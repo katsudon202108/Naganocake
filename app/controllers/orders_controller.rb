@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
           order_id: @order.id,
           item_id: cart_item.item_id,
           quantity: cart_item.quantity,
-          make_status: 0,
+          make_status: 'cannot',
           price: (cart_item.item.price * 1.08).floor
         )
       end
