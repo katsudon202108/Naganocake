@@ -1,4 +1,5 @@
 <div class='container mt-5'>
+  <%= render 'layouts/error', obj: @order %>
   <h3 class='mb-3'>注文情報入力</h3>
   <%= form_with model: @order, url: orders_confirm_path, local:true do |f| %>
     <p class='font-weight-bold mb-0'>支払方法</p>
