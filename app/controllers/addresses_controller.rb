@@ -10,6 +10,8 @@ class AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path
     else
+      @customer = current_customer
+      @addresses = @customer.addresses
       render :index
     end
   end
@@ -24,7 +26,9 @@ class AddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to addresses_path
     else
-      render :edit
+      @customer = current_customer
+      @addresses = @customer.addresses
+      render 'edit'
     end
   end
 
