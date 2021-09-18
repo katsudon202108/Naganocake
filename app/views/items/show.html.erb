@@ -14,7 +14,7 @@
           <h3 class="font-weight-bold">¥<%= @item.add_tax_price.to_s(:delimited) %></h3>
           <p class="d-flex align-items-end mb-2">(税込)</p>
         </div>
-        <%= form_with url: cart_items_path, method: :post, local: true do |f| %>
+        <%= form_with url: cart_items_path, model: @cart_item, method: :post, local: true do |f| %>
           <div>
             <%= f.select :quantity, [*1..10], selected: 1 %>
             <%= f.hidden_field :item_id, value: @item.id %>
