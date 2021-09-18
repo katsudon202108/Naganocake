@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'rails/s'
   devise_for :admin, controllers: {
   sessions:      'admin/sessions',
   passwords:     'admin/passwords',
