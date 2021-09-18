@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'rails/s'
   devise_for :admin, controllers: {
   sessions:      'admin/sessions',
   passwords:     'admin/passwords',
@@ -17,8 +16,8 @@ Rails.application.routes.draw do
   get '/customers/caution' => 'customers#caution'
   put '/customers/hide' => 'customers#hide',as: "customers_hide"
   resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :update, :destroy, :create]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+  resources :cart_items, only: [:index, :update, :destroy, :create]
   post '/orders/confirm' => 'orders#confirm'
   get '/orders/thanks' => 'orders#thanks'
   resources :orders, only: [:new, :create, :show, :index]
