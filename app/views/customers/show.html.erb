@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-11 mx-auto">
-      <h3>マイページ</h3>
+    <div class="col-11 mx-auto mt-3">
+      <h3 class="d-inline bg-light">マイページ</h3>
 
-      <div class="d-flex">
+      <div class="d-flex mt-3">
         <h5 class="font-weight-bold">登録情報</h5>
         <%= link_to '編集する', edit_customers_path, class:"btn btn-sm btn-success mx-3" %>
       </div>
 
-      <table class="col-7 table table-bordered border-primary mt-3">
+      <table class="col-7 table table-bordered mt-3">
         <tr>
           <td class="table-secondary">氏名</td>
           <td><%= @customer.last_name %><%= @customer.first_name %></td>

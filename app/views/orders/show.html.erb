@@ -31,7 +31,7 @@
       <table class='table table-bordered'>
         <tr>
           <th class='bg-light'>商品合計</th>
-          <td><%= @order.total_price - @order.postage %></td>
+          <td><%= (@order.total_price - @order.postage).to_s(:delimited) %></td>
         </tr>
         <tr>
           <th class='bg-light'>送料</th>
@@ -39,7 +39,7 @@
         </tr>
         <tr>
           <th class='bg-light'>ご請求額</th>
-          <td><%= @order.total_price %></td>
+          <td><%= @order.total_price.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
@@ -56,9 +56,9 @@
       <% @order.order_items.each do |order_item| %>
         <tr>
           <td><%= order_item.item.name %></td>
-          <td><%= (order_item.item.price * 1.08).floor %></td>
+          <td><%= ((order_item.item.price * 1.08).floor).to_s(:delimited) %></td>
           <td><%= order_item.quantity %></td>
-          <td><%= (order_item.item.price * 1.08).floor * order_item.quantity %></td>
+          <td><%= ((order_item.item.price * 1.08).floor * order_item.quantity).to_s(:delimited) %></td>
         </tr>
       <% end %>
     </table>

@@ -9,6 +9,8 @@ class Item < ApplicationRecord
 
   # 税込価格（軽減税率適用 8%で計算）
   def add_tax_price
-    (self.price * 1.08).round
+    (self.price * 1.08).floor
   end
+  # topページ新着商品表示
+  scope :latest, -> { order(id: :desc) }
 end
