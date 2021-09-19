@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @cart_items = CartItem.where(customer_id: @customer.id)
     # 全ての商品×個数の和に消費税を掛けた値(合計金額)
     @total_price = (@cart_items.map { |cart_item| cart_item.item.price * cart_item.quantity }.sum * 1.08).floor
-      # 現在の住所を使う場合
+    # 現在の住所を使う場合
     if params[:now_address].present?
       @order = Order.new(
         customer_id: @customer.id,
@@ -38,6 +38,10 @@ class OrdersController < ApplicationController
   end
 
   def create
+    # カートが空の場合
+    if @customer.cart_items.blank?
+      redirect_to cart_items_path and return
+    end
     @order = Order.new(order_params)
     if @order.save
       # 注文商品テーブルのレコードを作成
