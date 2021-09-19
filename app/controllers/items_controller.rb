@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_customer!, except: [:index, :show]
+
   def index
     @customer = current_customer
     @items = Item.page(params[:page])
