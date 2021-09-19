@@ -7,13 +7,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
-    <header>
-      <nav class='navbar navbar-expand-md  border-bottom ' style='height: 130px'>
+    <header style='background-color: #82654D'>
+      <nav class='navbar navbar-expand-md  border-bottom ' style='height: 140px'>
         <div class='container'>
-          <a class="navbar-brand text-dark" href="/">NAGANO CAKE</a>
+          <a href="/">
+            <img class="header-logo" src=<%= asset_path('NaganoCake.png') %> width="250" height="125">
+          </a>
           <% if customer_signed_in? %>
             ようこそ、<%= @customer.last_name %>さん !
           <% end %>
@@ -37,6 +40,14 @@
                 <li><%= link_to 'ログイン', new_customer_session_path, class:'nav-link text-dark' %></li>
               <% end %>
             </ul>
+            <div class='mt-2'>
+              <%= form_with url: items_path, method: :get, local:true do |f| %>
+                <div class='col-8 offset-4 border d-flex px-0'>
+                  <%= f.text_field :content, placeholder: 'Search', class:'border-0 col-10 ' %>
+                  <%= f.submit "\uf002", style:'font-family: FontAwesome', class:'btn btn-default text-primary' %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
 

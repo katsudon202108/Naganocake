@@ -5,17 +5,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>ケーキ</td>
-    </tr>
-    <tr>
-      <td>焼き菓子</td>
-    </tr>
-    <tr>
-      <td>プリン</td>
-    </tr>
-    <tr>
-      <td>キャンディ</td>
-    </tr>
+    <% genres.each do |genre| %>
+      <tr>
+        <td>
+          <%= link_to items_path(select_genre: genre.id), class:'text-dark font-weight-bold border-bottom border-danger' do %>
+            <%= genre.name %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
