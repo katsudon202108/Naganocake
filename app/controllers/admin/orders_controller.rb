@@ -1,18 +1,21 @@
 class Admin::OrdersController < Admin::AdminApplicationController
 
   def index
-    @orders = Order.all
+    @orders = Order.page(params[:page]).per(10)
   end
 
   def show
-
     @order = Order.find(params[:id])
+    @order_item = OrderItem.all
   end
 
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_to admin_orders_path
+    if @order.status == "check"
+      @order.order_items.update_all(make_status: OrderItem.make_statuses[:wait])
+    end
+    redirect_to admin_order_path(@order)
   end
 
   private
