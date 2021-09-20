@@ -28,6 +28,6 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
-    patch 'order_items/:id' => 'order_items#update', as: 'make_status'
+    patch '/order_items/:id' => 'order_items#update', as: 'make_status'
   end
 end
