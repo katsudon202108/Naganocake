@@ -31,6 +31,8 @@ class OrdersController < ApplicationController
     # 新しく住所を追加する場合
     elsif params[:new_address].present?
       @order = Order.new(order_params)
+    else
+      @order = Order.new(order_params)
     end
     if @order.invalid?(:confirm)
       render :new
@@ -67,7 +69,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = @customer.orders
+    @orders = @customer.orders.order(id: 'DESC')
   end
 
   def thanks
