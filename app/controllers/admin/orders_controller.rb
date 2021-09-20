@@ -6,11 +6,7 @@ class Admin::OrdersController < Admin::AdminApplicationController
 
   def show
     @order = Order.find(params[:id])
-<<<<<<< HEAD
-    @order_item = @order.order_items
-=======
     @order_item = OrderItem.all
->>>>>>> origin/develop
   end
 
   def update
