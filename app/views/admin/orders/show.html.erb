@@ -50,7 +50,7 @@
           <td><%= order_item.quantity %></td>
           <td><%= ((order_item.item.price * 1.08).floor * order_item.quantity).to_s(:delimited) %></td>
   			  <td>
-  			  	<%= form_with model: order_item, url: admin_order_path(@order), model: @order, method: :patch, local: true do |i| %>
+  			  	<%= form_with model: order_item, url: admin_order_path(@order), m method: :patch, local: true do |i| %>
   			  	<%= i.select :make_status, OrderItem.make_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %>
 		  		</td>
 		  		<td>
