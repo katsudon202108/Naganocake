@@ -1,23 +1,37 @@
-<div class="container">
-  <div class="row pt-5">
-    <div class="col-2">
-      <%= render 'items/genre', genres: @genres %>
-    </div>
-
-    <div class="col-10">
-      <div class="d-flex font-weight-bold">
-        <h3 class="font-weight-bold" >商品一覧</h3>
-        <p class="d-flex align-items-end mb-2">（全<%= @total_items.count %>件）</p>
+<div class="item_body">
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-2">
+        <%= render 'items/genre', genres: @genres %>
       </div>
-      <div class="d-flex flex-wrap">
-        <% @items.each do |item| %>
-          <div class="mr-3 mb-3">
-            <%= attachment_image_tag item, :image, :fill,210,150 %>
-            <p><%= link_to item.name, item_path(item) %></p>
-            ¥<%= item.add_tax_price.to_s(:delimited) %>　<!--add_tax_priceはモデルで定義　税率は8%で計算-->
+
+      <div class="col-10">
+        <div class="d-flex font-weight-bold item_title">
+          <h4>商品一覧（全<%= @total_items.count %>件）</h4>
+        </div>
+        <div class="d-flex flex-wrap">
+          <% @items.each do |item| %>
+            <%= link_to item_path(item) do %>
+              <div class="card mr-3 mb-3 shadow">
+                <div class="item_parent">
+                  <span class="item_mask">
+                    <%= attachment_image_tag item, :image, :fill,280,180, class:"round" %>
+                    <span class="item_text">
+                      <p class="introduction">introduction</p>
+                      <%= item.introduction %>
+                    </span>
+                  </span>
+                </div>
+              <% end %>
+              <div class="item_card_text">
+                <p class="ml-2">商品名: <%= item.name %></p>
+                <p class="ml-2">価格(税込): <%= item.add_tax_price.to_s(:delimited) %>円</p>
+                </div>
+              </div>
+          <% end %>
           </div>
-        <% end %>
-        <div class="mx-auto"><%= paginate @items %></div>
+          <div class="d-flex justify-content-center py-3"><%= paginate @items %></div>
+        </div>
       </div>
     </div>
   </div>
