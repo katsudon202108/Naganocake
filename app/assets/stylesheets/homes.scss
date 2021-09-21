@@ -2,6 +2,70 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+img:hover {
+  opacity: 0.8;
+}
+
+.bg-header {
+  background-image: image_url('banner.jpg');
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(130,101,77,0.8);
+  background-blend-mode:lighten;
+}
+
+.top-bg-center {
+  background-image: image_url('top-bg.jpg');
+  min-height: 1000px;
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(255,255,255,0.7);
+  background-blend-mode:lighten;
+}
+
+#top-box{
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+}
+.image1 {
+  background-image: image_url('image-1.jpg');
+}
+.image2 {
+  background-image: image_url('image-2.jpg');
+}
+.image3 {
+  background-image: image_url('image-3.jpg');
+}
+.image4 {
+  background-image: image_url('image-4.jpg');
+}
+
+.top-bg-introduction {
+  background-image: image_url('105717.png');
+  width: 700px;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #000!important;
+  opacity: 0.8!important;
+  font-size: 24px!important;
+}
+
+.nav-link:hover {
+  color: rgba(255,255,255,0.6)!important;
+}
+
+.address-bg {
+  background-image: image_url('bg-2.jpg');
+  max-hight: 1200px;
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(255,255,255,0.5);
 .about-img {
   background-image: image-url("about-back.jpg");
   background-size: cover;
