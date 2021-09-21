@@ -18,7 +18,9 @@
             <img class="header-logo" src=<%= asset_path('NaganoCake.png') %> width="250" height="125">
           </a>
           <% if customer_signed_in? %>
-            <!--ようこそ、<%= @customer.last_name %>さん !-->
+            <% unless current_page?(new_admin_session_path) %>
+              ようこそ、<%= @customer.last_name %>さん !
+            <% end %>
           <% end %>
           <div>
             <ul class="navbar-nav ml-auto">

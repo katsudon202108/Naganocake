@@ -3,6 +3,7 @@ class CartItemsController < ApplicationController
     @customer = current_customer
     @cart_items = current_customer.cart_items
     @sum = 0
+    @items = Item.order("RANDOM()").all
   end
 
   def create

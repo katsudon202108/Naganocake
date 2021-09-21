@@ -1,3 +1,19 @@
 // Place all the styles related to the cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.cart-item-img {
+  background: linear-gradient( 130deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("cartitem.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.cart-item-text {
+  font-family: "游明朝","Yu Mincho"; font-weight: bold;
+}
+
+.icon-red {
+  color: red;
+}

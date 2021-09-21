@@ -35,10 +35,8 @@
 				</tr>
 				<tr>
 					<th>注文ステータス</th>
-					<td>
-						<%= f.select :status, Order.statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %>
-		    　　<%= f.submit "更新", class:"btn btn-success" %>
-					</td>
+					<td><%= f.select :status, Order.statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %></td>
+		    　<td><%= f.submit "更新", class:"btn btn-success" %></td>
 				</tr>
 			  </table>
 			<% end %>
@@ -60,7 +58,6 @@
 		  			  <td>
 		  			  	<%= form_with model: order_item, url: admin_make_status_path(order_item), method: :patch, local: true do |i| %>
 		  			  	<%= i.select :make_status, OrderItem.make_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %>
-		  			  	<%= i.hidden_field :item_id, :value => order_item.id %>
 				  		</td>
 				  		<td>
 				  			<%= i.submit '更新する', class:"btn btn-success" %>
