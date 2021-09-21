@@ -1,3 +1,254 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.item_body{
+  background: url("item_bg_image.jpg");
+  background-size:cover;
+  backdrop-filter: blur(2px);
+}
+
+.item_title h4 {
+  position: relative;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+}
+
+.item_title h4:after {
+  position: absolute;
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 15px 15px;
+  border-style: solid;
+  border-color: #fff #fff #a8d4ff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+
+.item_parent{
+  position: relative; /*基点の位置*/
+}
+
+.parent span.item_mask{
+  position: relative;
+  transition: .3s ease-in-out; /*移り変わる速さ*/
+  display: block;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.item_parent:hover span.item_mask::before{
+  content:"";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.item_parent span.item_text{
+  opacity: 0;
+  transition: .5s ease-in-out; /*移り変わる速さ*/
+  position: absolute;
+  z-index: 3;/*テキストを前面に出す*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+  line-height: 1.5;
+}
+
+.item_parent:hover span.item_text{
+  opacity: 1;
+}
+
+.introduction{
+  font-family: cursive;
+}
+
+// kaminariのデザイン
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+  margin: 0 5px;
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 15px;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+.genre_box{
+  margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+
+.genre_box:before, .genre_box:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+.genre_box:before {left: 10px;}
+.genre_box:after {right: 10px;}
+.genre_box p {
+    margin: 0;
+    padding: 0;
+}
+
+.ribbon {
+  display: inline-block;
+  position: relative;
+  height: 45px;
+  line-height: 20px;
+  font-size: 15px;
+  background: #acd879;
+  color: #FFF;
+  box-sizing: border-box;
+  left: 13px;
+  width: 135px;
+}
+
+.ribbon p {
+  margin: 0;
+  padding: 5px 10px;
+  border-top: dashed 2px rgba(255, 255, 255, 0.5);
+  border-bottom: dashed 2px rgba(255, 255, 255, 0.5);
+  line-height: 20px;
+  position: absolute;
+  top: 5px;
+}
+
+.ribbon:before, .ribbon:after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+
+.ribbon:before {
+  /*左の山形*/
+  top: 0;
+  left: 0;
+  border-width: 22px 0px 22px 15px;
+  border-color: transparent transparent transparent #fcfde8;
+  border-style: solid;
+}
+
+.ribbon:after {
+  /*右の山形*/
+  top: 0;
+  right: 0;
+  border-width: 22px 15px 22px 0px;
+  border-color: transparent #fcfde8 transparent transparent;
+  border-style: solid;
+}
+
+.genre_content p {
+  position: relative;/*相対位置*/
+  padding: 0.5em 0.5em 0.5em 1.5em;/*アイコン分のスペース*/
+  line-height: 1.4;/*行高*/
+  color: #ff6a6a;/*文字色*/
+  border-top: dotted 1px gray;
+  border-bottom: dotted 1px gray;
+  background: #fffff4;
+  width: 135px;
+  left: 12px;
+}
+
+.genre_content p:before {
+  font-family: "Font Awesome 5 Free";/*忘れずに*/
+  content: "\f138";/*アイコンのユニコード*/
+  font-weight: 900;
+  position: absolute;/*絶対位置*/
+  font-size: 1em;/*サイズ*/
+  left: 0.25em;/*アイコンの位置*/
+  top: 0.5em;/*アイコンの位置*/
+  color: #ff6a6a; /*アイコン色*/
+}
+
+.making{
+  width: 150px;
+  height: 150px;
+  background-image: url(chef.jpeg);
+  background-position: 90% 25%;
+  background-size: 160%;
+  border-radius: 50%;
+}
+
+.chef_box{
+    margin:2em 0;
+    position: relative;
+    padding: 0.25em 0.5em;
+    border: solid 2px #ffcb8a;
+    border-radius: 3px 0 3px 0;
+    background: #fffff4a8;
+}
+.chef_box:before,.chef_box:after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: solid 2px #ffcb8a;
+    border-radius: 50%;
+    background: #fffff4a8;
+}
+.chef_box:after {
+    top: -8px;
+    left: -8px;
+}
+.chef_box:before {
+    bottom: -8px;
+    right: -8px;
+}
+.chef_box p {
+    margin: 0;
+    padding: 0;
+}
+
+.item_card_text{
+  background-color: #ecc996;
+  font-family: serif;
+}
+
+.item_show_box{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #474747;
+    background: #f1eaead6;/*背景色*/
+    border-left: double 7px #78f599;/*左線*/
+    border-right: double 7px #78f599;/*右線*/
+}
+
+.item_show_box h2{
+  border-bottom: double 5px #FFC778;
+}
+
+.item_show_box h2,.item_show_box h3,.item_show_box h4{
+  font-family: serif;
+}
+
+.cart_logo{
+  font-size: 20px;
+}
