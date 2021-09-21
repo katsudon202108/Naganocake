@@ -4,7 +4,7 @@
     <title>Naganocake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/f8d37013c4.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
           </a>
           <% if customer_signed_in? %>
             <% unless current_page?(new_admin_session_path) %>
-              ようこそ、<%= @customer.last_name %>さん !
+              ようこそ、<%= @customer.last_name %>さん
             <% end %>
           <% end %>
           <div>
