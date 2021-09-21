@@ -42,7 +42,7 @@
 				</tr>
 			  </table>
 			<% end %>
-		
+
 		    <table class="table table-bordered">
 		      <tr>
 					  <th>商品名</th>
@@ -60,7 +60,6 @@
 		  			  <td>
 		  			  	<%= form_with model: order_item, url: admin_make_status_path(order_item), method: :patch, local: true do |i| %>
 		  			  	<%= i.select :make_status, OrderItem.make_statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6"  %>
-		  			  	<%= i.hidden_field :item_id, :value => order_item.id %>
 				  		</td>
 				  		<td>
 				  			<%= i.submit '更新する', class:"btn btn-success" %>
@@ -69,10 +68,10 @@
 				  	</tr>
 		      <% end %>
 			  </table>
-		
+
 		  </div>
-		
-		
+
+
 			<table class="table table-bordered">
 				<tr>
 					<th style="width:30%;">商品合計</th>
