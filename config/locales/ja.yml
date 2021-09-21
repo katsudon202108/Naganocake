@@ -16,8 +16,6 @@ ja:
         wait: 制作待ち
         making: 製作中
         maked: 制作完了
-
-ja:
   views:
     pagination:
       first: "&laquo; 最初"

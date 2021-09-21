@@ -1,18 +1,28 @@
-<table class="table table-borderless border border-dark">
-  <thead class="border border-dark">
+<table class="table table-borderless genre_box">
+  <thead class="borderless">
     <tr>
-      <th class="text-center">ジャンル検索</th>
+      <th class="text-center ribbon"><p>ジャンル検索</p></th>
     </tr>
   </thead>
   <tbody>
     <% genres.each do |genre| %>
       <tr>
-        <td>
-          <%= link_to items_path(select_genre: genre.id), class:'text-dark font-weight-bold border-bottom border-danger' do %>
-            <%= genre.name %>
-          <% end %>
+        <td class="genre_content p-0">
+          <p>
+            <%= link_to items_path(select_genre: genre.id), class:'text-dark font-weight-bold' do %>
+              <%= genre.name %>
+            <% end %>
+          </p>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div class="making mt-5 pl-2"></div>
+<div class="chef_box">
+  <p>
+    一つ一つ真心を込めて手作りしております。<br />
+    「美味しかった」の一言と、お客様のとびきりの笑顔を見ることが私たちの幸せです。
+  </p>
+</div>
