@@ -1,3 +1,10 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order-new-img {
+  background: linear-gradient( 130deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3)), url("cartitem.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
