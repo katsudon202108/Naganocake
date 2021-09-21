@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+img:hover {
+  opacity: 0.8;
+}
+
+.bg-header {
+  background-image: image_url('banner.jpg');
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(130,101,77,0.8);
+  background-blend-mode:lighten;
+}
+
 .top-bg-center {
   background-image: image_url('top-bg.jpg');
   min-height: 1000px;
@@ -9,10 +22,6 @@
   background-position: center;
   background-color:rgba(255,255,255,0.7);
   background-blend-mode:lighten;
-}
-
-img:hover {
-  opacity: 0.8;
 }
 
 #top-box{
@@ -45,4 +54,16 @@ img:hover {
   color: #000!important;
   opacity: 0.8!important;
   font-size: 24px!important;
+}
+
+.nav-link:hover {
+  color: rgba(255,255,255,0.6)!important;
+}
+
+.address-bg {
+  background-image: image_url('bg-2.jpg');
+  max-hight: 1200px;
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(255,255,255,0.5);
 }
