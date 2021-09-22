@@ -1,7 +1,7 @@
 <div class="cart-item-img">
   <div role="content">
     <div class="content_complete">
-      <div class="row">
+      <div class="row justify-content-center">
         <form id="wizard-1" novalidate="novalidate">
           <div id="bootstrap-wizard-1" class="col-sm-12">
             <div class="form-bootstrapWizard">
@@ -13,27 +13,16 @@
               </ul>
               <div class="clearfix"></div>
             </div>
-            <div class="tab-content">
-              <div class="tab-pane" id="tab1"> <br>
-                <h3><strong>買い物かごに入れる</strong> </h3>
-              </div>
-              <div class="tab-pane" id="tab2"> <br>
-                <h3><strong>注文情報入力</strong> </h3>
-              </div>
-              <div class="tab-pane" id="tab3"> <br>
-                <h3><strong>注文内容を確認</strong> </h3>
-              </div>
-              <div class="tab-pane" id="tab4"> <br>
-                <h3><strong>完了</strong> </h3>
-              </div>
-            </div>
           </div>
         </form>
       </div>
     </div>
   </div>
   
-  <div class='d-flex align-items-center justify-content-center' style='height: 400px'>
-    <h2>ご注文ありがとうございました !</h2>
+  <div class='d-flex align-items-center justify-content-center' style='height: 300px'>
+    <h1>ご注文ありがとうございました !</h1>
+  </div>
+  <div>
+    <%= link_to '注文履歴一覧を見る', orders_path, class:"fas fa-scroll fa-2x d-flex align-items-center justify-content-center", style:'height: 100px' %>
   </div>
 </div>

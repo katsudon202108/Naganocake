@@ -1,7 +1,7 @@
 <div class="cart-item-img">
   <div role="content">
     <div class="widget-body">
-      <div class="row">
+      <div class="row justify-content-center">
         <form id="wizard-1" novalidate="novalidate">
           <div id="bootstrap-wizard-1" class="col-sm-12">
             <div class="form-bootstrapWizard">
@@ -13,20 +13,6 @@
               </ul>
               <div class="clearfix"></div>
             </div>
-            <div class="tab-content">
-              <div class="tab-pane" id="tab1"> <br>
-                <h3><strong>買い物かごに入れる</strong> </h3>
-              </div>
-              <div class="tab-pane" id="tab2"> <br>
-                <h3><strong>注文情報入力</strong> </h3>
-              </div>
-              <div class="tab-pane" id="tab3"> <br>
-                <h3><strong>注文内容を確認</strong> </h3>
-              </div>
-              <div class="tab-pane" id="tab4"> <br>
-                <h3><strong>完了</strong> </h3>
-              </div>
-            </div>
           </div>
         </form>
       </div>
@@ -37,34 +23,38 @@
     <h3>注文情報確認</h3>
     <div class='d-flex mt-2'>
       <table class='table table-bordered col-7'>
-        <tr class='bg-light'>
-          <th>商品名</th>
-          <th>単価（税込）</th>
-          <th>数量</th>
-          <th>小計</th>
+        <tr>
+          <thead class="thead-light">
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+          </thead>
         </tr>
         <% @cart_items.each do |cart_item| %>
           <tr>
-            <td><%= cart_item.item.name %></td>
-            <td><%= ((cart_item.item.price * 1.08).floor).to_s(:delimited) %></td>
-            <td><%= cart_item.quantity %></td>
-            <td><%= ((cart_item.item.price * 1.08).floor * cart_item.quantity).to_s(:delimited) %></td>
+            <td class="confirmfont"><%= cart_item.item.name %></td>
+            <td class="confirmfont"><%= ((cart_item.item.price * 1.08).floor).to_s(:delimited) %></td>
+            <td class="confirmfont"><%= cart_item.quantity %></td>
+            <td class="confirmfont"><%= ((cart_item.item.price * 1.08).floor * cart_item.quantity).to_s(:delimited) %></td>
           </tr>
         <% end %>
       </table>
       <table class='table table-bordered col-md-3 offset-md-1'>
+        <thead class="thead-light">
         <tr>
-          <th class='bg-light'>送料</th>
-          <td>800</td>
+          <th>送料</th>
+          <td class="confirmfont">800</td>
         </tr>
         <tr>
-          <th class='bg-light'>商品合計</th>
-          <td><%= @total_price.to_s(:delimited) %></td>
+          <th>商品合計</th>
+          <td class="confirmfont"><%= @total_price.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <th class='bg-light'>請求金額</th>
-          <td><%= (@total_price + 800).to_s(:delimited)  %></td>
+          <th>請求金額</th>
+          <td class="confirmfont"><%= (@total_price + 800).to_s(:delimited)  %></td>
         </tr>
+        </thead>
       </table>
     </div>
     <div class='d-flex mt-5'>

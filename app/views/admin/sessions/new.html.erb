@@ -1,18 +1,24 @@
-<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-4 mb-4">
-<h4>管理者ログイン</h4>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :パスワード %>
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "ログイン" , class:"btn btn-sm btn-primary" %>
-    </div>
-  <% end %>
+<div class="underlay-photo">
+  <div class="col-sm-12 col-md-12 col-lg-5 px-5 px-sm-0 mx-auto pt-5 pb-5 text-center">
+    <h4 class="admin-text">管理者ログイン</h4>
+      <p class="login-text">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-lock fa-stack-1x"></i>
+        </span>
+      </p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="login-email" type="email">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: "true", placeholder: "Email" %>
+      </div>
+    
+      <div class="login-password" type="password">
+        <%= f.password_field :password, autocomplete: "current-password", required: "true", placeholder: "Password" %>
+      </div>
+    
+      <div class="">
+        <%= f.submit "Login" , class:"login-submit" %>
+      </div>
+    <% end %>
+  </div>
 </div>
