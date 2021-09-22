@@ -1,30 +1,32 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row mt-4'>
-    <div class='col-md-11 mx-auto'>
-      <div class="d-flex justify-content-between">
-        <h3 class="d-inline bg-light">注文履歴一覧</h3>
-      </div>
-      <table class='table table-hover table-inverse mt-4 text-nowrap'>
-        <thead>
-          <tr>
-            <th class="col-1">購入日時</th>
-            <th class="col-2">購入者</th>
-            <th class="col-2">注文個数</th>
-            <th class="col-2">注文ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders.each do |order| %>
+<div class="admin-photo">
+  <div class='container px-5 px-sm-0'>
+    <div class='row pt-4'>
+      <div class='col-md-11 mx-auto'>
+        <div class="d-flex justify-content-between">
+          <h3 class="d-inline bg-light">注文履歴一覧</h3>
+        </div>
+        <table class='table table-hover table-inverse mt-4 text-nowrap'>
+          <thead>
             <tr>
-              <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order) %></td>
-              <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-              <td><%= order.order_items.sum(:quantity) %></td>
-              <td><%= order.status_i18n %></td>
+              <th class="col-1">購入日時</th>
+              <th class="col-2">購入者</th>
+              <th class="col-2">注文個数</th>
+              <th class="col-2">注文ステータス</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="d-flex justify-content-center"><%= paginate @orders %></div>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+              <tr>
+                <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order) %></td>
+                <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+                <td><%= order.order_items.sum(:quantity) %></td>
+                <td><%= order.status_i18n %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-center"><%= paginate @orders %></div>
+      </div>
     </div>
   </div>
 </div>
