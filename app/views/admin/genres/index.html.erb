@@ -1,49 +1,51 @@
-<div class='container mt-5'>
-  <div class='row'>
-    <div class="col-sm-12 px-5 px-sm-0">
-      <h3>ジャンル一覧・追加</h3>
-      <%= form_with model: [:admin, @genre], local:true, class:'mt-5' do |f| %>
-        <div class="form-group">
-          <%= f.label :ジャンル名, class:'col-2 font-weight-bold' %>
-          <%= f.text_field :name, class: "col-md-3 form-control-name px-0", placeholder: 'ジャンル名' %>
-        </div>
-        <div class="form-group row mt-3">
-          <%= f.label :ジャンル画像, class:"col-2 font-weight-bold" %>
-          <%= f.attachment_field :image, class:'px-3'%>
-          <%= f.submit '新規登録', class: 'btn btn-success' %>
-        </div>
-      <% end %>
-      <div class="d-flex flex-wrap mt-5">
-        <% @genres.each do |genre| %>
-          <div class="col-3 px-2 mb-4">
-            <%= attachment_image_tag genre, :image, :fill,260,200 %>
-            <p class='font-weight-bold text-dark mt-2 mb-2' style='font-size: 20px;'><%= genre.name %></p>
-            <%= link_to '編集する', edit_admin_genre_path(genre), class:"btn btn-success" %>
+<div class="admin-photo">
+  <div class='container t-5'>
+    <div class='row'>
+      <div class="col-sm-12 px-5 px-sm-0">
+        <h3>ジャンル一覧・追加</h3>
+        <%= form_with model: [:admin, @genre], local:true, class:'mt-5' do |f| %>
+          <div class="form-group">
+            <%= f.label :ジャンル名, class:'col-2 font-weight-bold' %>
+            <%= f.text_field :name, class: "col-md-3 form-control-name px-0", placeholder: 'ジャンル名' %>
+          </div>
+          <div class="form-group row mt-3">
+            <%= f.label :ジャンル画像, class:"col-2 font-weight-bold" %>
+            <%= f.attachment_field :image, class:'px-3'%>
+            <%= f.submit '新規登録', class: 'btn btn-success' %>
           </div>
         <% end %>
-      </div>
-
-
-      <!--<div class='col-md-4 px-0'>-->
-      <!--  <table class='table table-hover table-inverse'>-->
-      <!--    <thead>-->
-      <!--      <tr class='bg-light'>-->
-      <!--        <th>ジャンル</th>-->
-      <!--        <th>画像</th>-->
-      <!--      </tr>-->
-      <!--    </thead>-->
-      <!--    <tbody>-->
-      <!--      <% @genres.each do |genre| %>-->
-      <!--        <tr>-->
-      <!--          <td class='align-middle'><%= genre.name %></td>-->
-      <!--          <td><%= attachment_image_tag genre, :image, :fill,260,200 %></td>-->
-      <!--          <td class='col-5 text-center'>-->
-      <!--            <%= link_to '編集する', edit_admin_genre_path(genre), class:"btn btn-success" %>-->
-      <!--          </td>-->
-      <!--        </tr>-->
-      <!--      <% end %>-->
-      <!--    </tbody>-->
-      <!--  </table>-->
+        <div class="d-flex flex-wrap mt-5">
+          <% @genres.each do |genre| %>
+            <div class="col-3 px-2 mb-4">
+              <%= attachment_image_tag genre, :image, :fill,260,200 %>
+              <p class='font-weight-bold text-dark mt-2 mb-2' style='font-size: 20px;'><%= genre.name %></p>
+              <%= link_to '編集する', edit_admin_genre_path(genre), class:"btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+  
+  
+        <!--<div class='col-md-4 px-0'>-->
+        <!--  <table class='table table-hover table-inverse'>-->
+        <!--    <thead>-->
+        <!--      <tr class='bg-light'>-->
+        <!--        <th>ジャンル</th>-->
+        <!--        <th>画像</th>-->
+        <!--      </tr>-->
+        <!--    </thead>-->
+        <!--    <tbody>-->
+        <!--      <% @genres.each do |genre| %>-->
+        <!--        <tr>-->
+        <!--          <td class='align-middle'><%= genre.name %></td>-->
+        <!--          <td><%= attachment_image_tag genre, :image, :fill,260,200 %></td>-->
+        <!--          <td class='col-5 text-center'>-->
+        <!--            <%= link_to '編集する', edit_admin_genre_path(genre), class:"btn btn-success" %>-->
+        <!--          </td>-->
+        <!--        </tr>-->
+        <!--      <% end %>-->
+        <!--    </tbody>-->
+        <!--  </table>-->
+        </div>
       </div>
     </div>
   </div>

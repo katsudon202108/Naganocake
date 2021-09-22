@@ -1,3 +1,11 @@
 // Place all the styles related to the admin/admin_application controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.admin-photo {
+  background: linear-gradient( 130deg, rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("adminback.jpg");
+  background-size: cover;
+  z-index: -1;
+  height: 900px;
+}
