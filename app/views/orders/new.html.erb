@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class='container pt-3'>
+  <div class='container py-3'>
     <%= render 'layouts/error', obj: @order %>
     <h3 class='mb-3'>注文情報入力</h3>
     <%= form_with model: @order, url: orders_confirm_path, local:true do |f| %>

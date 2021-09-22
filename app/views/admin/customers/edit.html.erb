@@ -37,10 +37,8 @@
           </div>
           <div>
             <%= f.label :'会員ステータス', class:"col-2" %>
-            <input type='checkbox' value='false' name='customer[is_deleted]' id='status-false'>
-            <label class='mr-3' for='status-false'>有効</label>
-            <input type='checkbox' value='true' name='customer[is_deleted]' id='status-true'>
-            <label for='status-true'>退会</label>
+            <%= f.radio_button :is_deleted, false, id:'customer_false' %><%= f.label :false, "有効", class:'mr-2' %>
+            <%= f.radio_button :is_deleted, true, id:'customer_true' %><%= f.label :true, "退会" %>
           </div>
           <div class="d-flex">
             <div class="col-4 offset-2 p-0"><%= f.submit '変更を保存', class:"btn btn-sm btn-success col-7" %></div>
