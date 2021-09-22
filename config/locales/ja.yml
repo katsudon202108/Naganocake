@@ -7,15 +7,15 @@ ja:
       status:
         wait: 入金待ち
         check: 入金確認
-        making: 制作中
+        making: 製作中
         ready: 発送準備中
         sent: 発送済み
     order_item:
       make_status:
-        cannot: 制作不可
-        wait: 制作待ち
+        cannot: 着手不可
+        wait: 製作待ち
         making: 製作中
-        maked: 制作完了
+        maked: 製作完了
   views:
     pagination:
       first: "&laquo; 最初"

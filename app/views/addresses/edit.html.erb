@@ -1,8 +1,12 @@
-  <div class='container mt-5'>
-    <%= render 'layouts/error', obj: @address %>
-    <h2 class='mb-5'>配送先編集</h2>
-    <%= form_with model: @address, local:true do |f| %>
-      <%= render 'addresses/form', f: f %>
-      <%= f.submit '変更内容を保存', class:'btn btn-success' %>
-    <% end %>
+  <div class='address-bg'>
+    <div class='address-bg-rgba'>
+      <div class='container' style='padding-top: 7%;'>
+        <%= render 'layouts/error', obj: @address %>
+        <h3 class='mb-5' style='text-shadow: 1px 2px 3px #808080;'>配送先編集</h3>
+        <%= form_with model: @address, local:true do |f| %>
+          <%= render 'addresses/form', f: f %>
+          <%= f.submit '変更内容を保存', class:'btn btn-success mt-3' %>
+        <% end %>
+      </div>
+    </div>
   </div>

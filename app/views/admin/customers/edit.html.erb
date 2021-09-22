@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
-  
+
         <%= form_with url: admin_customer_path(@customer), model: [:admin ,@customer], local: true, class:'mt-4' do |f| %>
           <div class="form-group">
             <%= f.label :'会員ID', class:"col-2" %>

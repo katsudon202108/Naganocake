@@ -16,4 +16,14 @@
 .confirmfont {
   font-size: 25px;
   background: linear-gradient( 130deg, rgba(255,255,255,0.6), rgba(255,255,255,0.6))
+.order-bg {
+  background-image: image_url('fruits.jpg');
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+}
+
+.order-bg-rgba {
+  min-height: 600px;
+  background: rgba(255, 255, 255, 0.3);
 }

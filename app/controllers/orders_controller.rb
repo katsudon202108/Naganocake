@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     # 全ての商品×個数の和に消費税を掛けた値(合計金額)
     @total_price = (@cart_items.map { |cart_item| cart_item.item.price * cart_item.quantity }.sum * 1.08).floor
     # 現在の住所を使う場合
-    if params[:now_address].present?
+    if params[:address] == 'now'
       @order = Order.new(
         customer_id: @customer.id,
         postal_code: @customer.postal_code,
@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
         payment_way: params[:order][:payment_way]
       )
     # 配送先登録した住所を使う場合
-    elsif params[:select_address].present?
+    elsif params[:address] == 'select'
       address =  Address.find_by(id: params[:select]) # params[:select]は選択した住所のid
       @order = Order.new(
         customer_id: @customer.id,
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
         payment_way: params[:order][:payment_way]
       )
     # 新しく住所を追加する場合
-    elsif params[:new_address].present?
+    elsif params[:address] == 'new'
       @order = Order.new(order_params)
     else
       @order = Order.new(order_params)
@@ -69,7 +69,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = @customer.orders.order(id: 'DESC')
+    @orders = @customer.orders.page(params[:page]).per(6)
   end
 
   def thanks

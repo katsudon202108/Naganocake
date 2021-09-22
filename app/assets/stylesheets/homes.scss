@@ -7,11 +7,11 @@ img:hover {
 }
 
 .bg-header {
-  background-image: image_url('banner.jpg');
+  background-image: image_url('banner2.jpg');
   height: 140px;
   background-size: cover;
   background-position: center;
-  background-color:rgba(130,101,77,0.8);
+  background-color:rgba(216,150,98,0.6);
   background-blend-mode:lighten;
 }
 
@@ -57,7 +57,7 @@ img:hover {
 }
 
 .nav-link:hover {
-  color: rgba(255,255,255,0.6)!important;
+  color: rgba(255,255,255,0.7)!important;
 }
 
 .address-bg {
@@ -91,5 +91,6 @@ img:hover {
 }
 
 .about-table-text {
-  font-family: "游明朝","Yu Mincho"; font-weight: bold;
+  font-family: "游明朝","Yu Mincho";
+  font-weight: bold;
 }
