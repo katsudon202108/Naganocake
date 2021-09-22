@@ -69,7 +69,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = @customer.orders.page(params[:page]).per(6)
+    @orders = @customer.orders.page(params[:page]).per(6).order(created_at: 'DESC')
   end
 
   def thanks
