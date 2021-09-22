@@ -32,31 +32,31 @@
       </div>
     </div>
   </div>
-  
+
   <div class='container pt-3'>
     <%= render 'layouts/error', obj: @order %>
     <h3 class='mb-3'>注文情報入力</h3>
     <%= form_with model: @order, url: orders_confirm_path, local:true do |f| %>
       <p class='font-weight-bold mb-0'>支払方法</p>
       <div class='ml-4'>
-        <input type='checkbox' value='card' name='order[payment_way]' id='payment-way-0'>
-        <label for='payment-way-0'>クレジットカード</label><br>
-        <input type='checkbox' value='bank' name='order[payment_way]' id='payment-way-1'>
-        <label for='payment-way-1'>銀行振込</label>
+        <%= f.radio_button :payment_way, 'card', id:'order_card', class:'mr-1' %>
+        <%= f.label :card, "クレジットカード" %><br>
+        <%= f.radio_button :payment_way, 'bank', id:'order_bank', class:'mr-1' %>
+        <%= f.label :bank, "銀行振込" %>
     　</div>
     　<p class='font-weight-bold mb-0'>お届け先</p>
       <div class='ml-4'>
         <div class='form-group'>
-          <%= check_box_tag :now_address, '現在の住所', nil %>
-          <%= label_tag :now_address, '現在の住所' %>
+          <%= radio_button_tag :address, 'now', false, class:'mr-1'%>
+          <%= label_tag :address_now, "現在の住所" %>
           <p class='ml-4'>
             〒<%= @customer.postal_code %> <%= @customer.address %><br>
             <%= @customer.last_name + @customer.first_name %>
           </p>
         </div>
         <div class='form-group'>
-          <%= check_box_tag :select_address, '登録済住所', nil %>
-          <%= label_tag :select_address, '登録済住所から選択' %>
+          <%= radio_button_tag :address, 'select', false, class:'mr-1'%>
+          <%= label_tag :address_select, "登録済住所から選択" %>
           <div class='ml-4'>
             <select name="select">
               <% @customer.addresses.each do |address| %>
@@ -65,8 +65,8 @@
             </select>
           </div>
         </div>
-        <%= check_box_tag :new_address, '新規の住所', nil %>
-        <%= label_tag :new_address, '新しいお届け先' %>
+        <%= radio_button_tag :address, 'new', false, class:'mr-1'%>
+        <%= label_tag :address_new, "新しいお届け先" %>
         <div class='ml-4'>
           <%= render 'addresses/form', f: f %>
         </div>

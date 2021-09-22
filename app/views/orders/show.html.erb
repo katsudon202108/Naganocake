@@ -1,66 +1,70 @@
-<div class='container mt-5'>
-  <h3>注文履歴詳細</h3>
-  <div class='d-flex mt-5'>
-    <div class='col-6 pl-0'>
-      <h5 class='font-weight-bold mb-3'>注文情報</h5>
-      <table class='table table-bordered'>
-        <tr>
-          <th class='col-3 bg-light'>注文日</th>
-          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-        </tr>
-        <tr>
-          <th class='bg-light'>配送先</th>
-          <td>
-            〒<%= @order.postal_code %><br>
-            <%= @order.address %><br>
-            <%= @order.name %>
-          </td>
-        </tr>
-        <tr>
-          <th class='bg-light'>支払方法</th>
-          <td><%= @order.payment_way_i18n %></td>
-        </tr>
-        <tr>
-          <th class='bg-light'>ステータス</th>
-          <td><%= @order.status_i18n %></td>
-        </tr>
-      </table>
+<div class='order-bg'>
+  <div class='order-bg-rgba'>
+    <div class='container py-5'>
+      <h3 style='text-shadow: 1px 2px 3px #808080;'>注文履歴詳細</h3>
+      <div class='d-flex mt-5'>
+        <div class='col-6 pl-0'>
+          <h5 class='font-weight-bold mb-3'>注文情報</h5>
+          <table class='table table-bordered'>
+            <tr>
+              <th class='col-3 bg-light'>注文日</th>
+              <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+            </tr>
+            <tr>
+              <th class='bg-light'>配送先</th>
+              <td>
+                〒<%= @order.postal_code %><br>
+                <%= @order.address %><br>
+                <%= @order.name %>
+              </td>
+            </tr>
+            <tr>
+              <th class='bg-light'>支払方法</th>
+              <td><%= @order.payment_way_i18n %></td>
+            </tr>
+            <tr>
+              <th class='bg-light'>ステータス</th>
+              <td><%= @order.status_i18n %></td>
+            </tr>
+          </table>
+        </div>
+        <div class='col-4'>
+          <h5 class='font-weight-bold mb-3'>請求情報</h5>
+          <table class='table table-bordered'>
+            <tr>
+              <th class='bg-light'>商品合計</th>
+              <td><%= (@order.total_price - @order.postage).to_s(:delimited) %></td>
+            </tr>
+            <tr>
+              <th class='bg-light'>送料</th>
+              <td><%= @order.postage %></td>
+            </tr>
+            <tr>
+              <th class='bg-light'>ご請求額</th>
+              <td><%= @order.total_price.to_s(:delimited) %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h5 class='font-weight-bold mb-3'>注文内容</h5>
+        <table class='table table-bordered col-7' style='background: rgba(255, 255, 255, 0.9);'>
+          <tr class='bg-light'>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+          <% @order.order_items.each do |order_item| %>
+            <tr>
+              <td><%= order_item.item.name %></td>
+              <td><%= ((order_item.item.price * 1.08).floor).to_s(:delimited) %></td>
+              <td><%= order_item.quantity %></td>
+              <td><%= ((order_item.item.price * 1.08).floor * order_item.quantity).to_s(:delimited) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
-    <div class='col-4'>
-      <h5 class='font-weight-bold mb-3'>請求情報</h5>
-      <table class='table table-bordered'>
-        <tr>
-          <th class='bg-light'>商品合計</th>
-          <td><%= (@order.total_price - @order.postage).to_s(:delimited) %></td>
-        </tr>
-        <tr>
-          <th class='bg-light'>送料</th>
-          <td><%= @order.postage %></td>
-        </tr>
-        <tr>
-          <th class='bg-light'>ご請求額</th>
-          <td><%= @order.total_price.to_s(:delimited) %></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div>
-    <h5 class='font-weight-bold mb-3'>注文内容</h5>
-    <table class='table table-bordered col-7'>
-      <tr class='bg-light'>
-        <th>商品</th>
-        <th>単価（税込）</th>
-        <th>個数</th>
-        <th>小計</th>
-      </tr>
-      <% @order.order_items.each do |order_item| %>
-        <tr>
-          <td><%= order_item.item.name %></td>
-          <td><%= ((order_item.item.price * 1.08).floor).to_s(:delimited) %></td>
-          <td><%= order_item.quantity %></td>
-          <td><%= ((order_item.item.price * 1.08).floor * order_item.quantity).to_s(:delimited) %></td>
-        </tr>
-      <% end %>
-    </table>
   </div>
 </div>
