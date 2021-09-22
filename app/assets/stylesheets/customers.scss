@@ -1,9 +1,71 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .customer_body{
-  background: url(item_bg_image.jpg);
+  background: url(customer_image.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: top;
+  height: auto;
+  font-family: serif;
+}
+
+.customer_heading {
+  position: relative;
+  transform: rotate(-5deg);
+  color: #ef7126;
+  font-size: 50px;
+  font-weight: 400;
+  font-family: luxus-brut, cursive;
+  font-style: italic;
+  padding-bottom: 35px;
+}
+
+.customer_body h5{
+  padding: 0.4em 0.5em;
+  color: #494949;/*文字色*/
+  background: #f4f4f4;/*背景色*/
+  border-left: solid 5px #7db4e6;
+  border-bottom: solid 3px #d7d7d7;
+}
+
+.customer_edit_heading {
+  position: relative;
+  background: #f1f8ffb3;
+  padding: 0.20em 0.20em;
+  border-left: solid 1.5em #5c9ee7;
+  width: 200px;
+  border-radius: 3px;
+}
+
+.customer_edit_heading:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f5ac";
+  position: absolute;
+  padding: 0em;
+  color: white;
+  font-weight: 600;
+  left: -1.2em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.label_text{
+	line-height:0.95em;
+	color: #FFF;
+	text-shadow: 0 0 0.2em rgba(0,0,0,1);
+}
+
+.caution_container{
+  height: 700px;
+}
+
+.customer_table tr th{
+  border:1px solid black;
+  background-color: #f1c585;
+}
+
+.customer_table tr td{
+  border:1px solid black;
+  background-color: #e9e2d1bf;
 }

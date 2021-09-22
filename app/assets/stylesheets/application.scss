@@ -153,3 +153,24 @@
 }
 
 /*End Wizard*/
+
+/*Start footer*/
+
+.footer_round{
+  background-color:#f5c5ca ;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.footer_logo{
+  position:absolute;
+  top: 10px;
+}
+
+.footer_text{
+  font-family: cursive;
+}
+
+/*End footer*/

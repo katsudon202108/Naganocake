@@ -23,11 +23,7 @@
           </a>
           <% if customer_signed_in? %>
             <% unless current_page?(new_admin_session_path) %>
-<<<<<<< HEAD
               <span class='text-body font-weight-bold'>ようこそ、<%= @customer.last_name %>さん !</span>
-=======
-              ようこそ、<%= @customer.last_name %>さん
->>>>>>> origin/develop
             <% end %>
           <% end %>
           <div>
@@ -60,11 +56,11 @@
             </div>
           </div>
         </div>
-
       </nav>
     </header>
     <main>
       <%= yield %>
+    <%= render 'layouts/footer' %>
     </main>
   </body>
 </html>
