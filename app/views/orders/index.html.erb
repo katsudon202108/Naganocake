@@ -1,33 +1,38 @@
-<div class='container mt-5'>
-  <h3>注文履歴一覧</h3>
-  <div class='mt-4'>
-    <table class='table table-bordered '>
-      <tr class='bg-light'>
-        <th>注文日</th>
-        <th>配送先</th>
-        <th>注文商品</th>
-        <th>支払い金額</th>
-        <th>ステータス</th>
-        <th>注文詳細</th>
-      </tr>
-      <% @orders.each do |order| %>
-        <tr>
-          <td class='align-middle'><%= order.created_at.strftime('%Y/%m/%d') %></td>
-          <td class='align-middle'>
-            〒<%= order.postal_code %><br>
-            <%= order.address %><br>
-            <%= order.name %>
-          </td>
-          <td class='align-middle'>
-            <% order.items.each do |item| %>
-              <%= item.name %><br>
-            <% end %>
-          </td>
-          <td class='align-middle'><%= order.total_price.to_s(:delimited) %>円</td>
-          <td class='align-middle'><%= order.status_i18n %></td>
-          <td class='text-center align-middle'><%= link_to '表示する', order_path(order), class:'btn btn-primary' %></td>
-        </tr>
-      <% end %>
-    </table>
+<div class='order-bg'>
+  <div class='order-bg-rgba'>
+    <div class='container py-5'>
+      <h3 style='text-shadow: 1px 2px 3px #808080;'>注文履歴一覧</h3>
+      <div class='mt-4'>
+        <table class='table table-bordered' style='background: rgba(255, 255, 255, 0.9);'>
+          <tr class='bg-light'>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>注文商品</th>
+            <th>支払い金額</th>
+            <th>ステータス</th>
+            <th>注文詳細</th>
+          </tr>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class='align-middle'><%= order.created_at.strftime('%Y/%m/%d') %></td>
+              <td class='align-middle'>
+                〒<%= order.postal_code %><br>
+                <%= order.address %><br>
+                <%= order.name %>
+              </td>
+              <td class='align-middle'>
+                <% order.items.each do |item| %>
+                  <%= item.name %><br>
+                <% end %>
+              </td>
+              <td class='align-middle'><%= order.total_price.to_s(:delimited) %>円</td>
+              <td class='align-middle'><%= order.status_i18n %></td>
+              <td class='text-center align-middle'><%= link_to '表示する', order_path(order), class:'btn btn-primary' %></td>
+            </tr>
+          <% end %>
+        </table>
+        <div class="d-flex justify-content-center py-3"><%= paginate @orders %></div>
+      </div>
+    </div>
   </div>
 </div>
